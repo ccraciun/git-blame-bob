@@ -69,7 +69,11 @@ mailmap_tmpfile=$(mktemp)
 
 # Store git user/email in variable so we don't have to query git for it
 # multiple times when printing it on each line of our new mailmap file.
-myself="$(git config user.name) <$(git config user.email)>"
+bob=$(echo "$0" | sed 's/^.*git-blame-//' | sed 's/-/ /g' | sed 's/[^ ]*/\u&/g')
+bob="$bob <$bob>"
+if [ "$target" = "self" ]; then
+    bob="$(git config user.name) <$(git config user.email)>"
+fi
 
 # If our `git blame --porcelain` call fails (for instance if no arguments
 # are passed in) with a non-zero status code, we don't want that to get
@@ -87,7 +91,7 @@ if git blame --porcelain "$@" |
   sed 'N;s/\n//' |
   sort |
   uniq > "$intermediate_tmpfile" &&
-  paste -d ' ' <(for _ in $(seq 1 "$(wc -l < "$intermediate_tmpfile")"); do echo "$myself"; done) "$intermediate_tmpfile" > "$mailmap_tmpfile"; then
+  paste -d ' ' <(for _ in $(seq 1 "$(wc -l < "$intermediate_tmpfile")"); do echo "$bob"; done) "$intermediate_tmpfile" > "$mailmap_tmpfile"; then
   # If we've completed our setup successfully, run `git blame` "for real"
   # with the temp `.mailmap` file we created. If the previous line exited
   # with a non-zero status code, we don't want to execute this line because
