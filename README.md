@@ -45,7 +45,7 @@ There's a handy walkthrough
 [in the source](https://github.com/JacobEvelyn/git-self-blame/blob/master/git-self-blame)!
 
 ## Who are you?
-I'm just a guy who had an idea and stole the code from Jacob. In his words:
+I'm just a guy who had an idea and stole the code from Jacob. In Jacob's words:
 > I do a lot of [humor writing](https://medium.com/@jacobevelyn) and
 > [tech writing](https://medium.freecodecamp.org/@jacobevelyn) and
 > [code writing](https://github.com/JacobEvelyn), and you can blame me for all
