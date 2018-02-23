@@ -30,8 +30,8 @@ Code completely yanked from [git-self-blame](https://github.com/JacobEvelyn/git-
 ## Installation
 
 ```bash
-git clone https://github.com/JacobEvelyn/git-self-blame.git
-cd git-self-blame
+git clone https://github.com/ccraciun/git-blame-bob.git
+cd git-blame-bob
 export PATH=$PATH:$(pwd)
 
 # If you want to actually use this more than once, add this
